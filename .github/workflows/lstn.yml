@@ -1,0 +1,29 @@
+name: Testing lstn
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: listen.dev Scan
+        uses: listendev/action@v0.6.2
+        with:
+          ci: true
+          jwt: ${{ secrets.LSTN_TOKEN }}
+          
+      - name: Install packages
+        run: |
+          npm install 
+          
+      - name: Test code
+        run: | 
+          npm test
