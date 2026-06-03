@@ -6,7 +6,7 @@
 
 Official repository for the [Venus protocol](https://venus.io) application.
 
-## Getting started
+## Getting started 
 
 Install dependencies with yarn
 
